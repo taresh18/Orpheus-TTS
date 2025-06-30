@@ -8,8 +8,9 @@ import queue
 from .decoder import tokens_decoder_sync
 
 class OrpheusModel:
-    def __init__(self, model_name, dtype=torch.bfloat16, tokenizer='canopylabs/orpheus-3b-0.1-pretrained', **engine_kwargs):
-        self.model_name = self._map_model_params(model_name)
+    def __init__(self, model_name, dtype=torch.bfloat16, tokenizer=None, **engine_kwargs):
+        # self.model_name = self._map_model_params(model_name)
+        self.model_name = model_name
         self.dtype = dtype
         self.engine_kwargs = engine_kwargs  # vLLM engine kwargs
         self.engine = self._setup_engine()
