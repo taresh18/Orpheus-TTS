@@ -1,6 +1,6 @@
 from flask import Flask, Response, request
 import struct
-from orpheus_tts import OrpheusModel
+from engine_class import OrpheusModel
 
 app = Flask(__name__)
 engine = OrpheusModel(model_name="canopylabs/orpheus-3b-0.1-ft", max_model_len=2048, gpu_memory_utilization=0.9, max_num_batched_tokens=8192, max_num_seqs=4, enable_chunked_prefill=True)
